@@ -107,3 +107,10 @@
         });
     }
 });
+
+const image = document.querySelector('.profile-photo');
+const shape = document.querySelector('.profile-shape');
+
+if (image && image.getAttribute('src')) {
+  shape.classList.add('has-image');
+}
