@@ -416,10 +416,9 @@ section {
     gap: 1rem;
     margin-top: 2rem;
 }
-/* Your existing CSS */
 .profile-shape {
-    width: 100%;
-    height: 100%;
+    width: 300px;  /* Set a specific width */
+    height: 300px; /* Set a specific height - adjust as needed */
     border-radius: var(--radius-xl);
     background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(236, 72, 153, 0.1));
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -434,26 +433,62 @@ section {
     animation: float 6s ease-in-out infinite;
 }
 
+/* Style for the inner div */
+.profile-shape > div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
 .profile-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: var(--transition);
-    border-radius: var(--radius-xl); /* Match the container's border radius */
+    border-radius: var(--radius-xl);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Style for the "AS" text */
+.profile-shape > div::after {
+    content: "AS";
+    position: absolute;
+    z-index: 2;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    display: none; /* Hidden by default, shown on hover */
 }
 
 .profile-shape:hover .profile-photo {
     transform: scale(1.05);
+    filter: brightness(0.7); /* Slightly dim the photo when hovering */
 }
 
+.profile-shape:hover > div::after {
+    display: block; /* Show the "AS" text on hover */
+}
+
+/* Define the float animation */
 @keyframes float {
-    0%, 100% {
+    0% {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-15px);
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
     }
 }
+
 
 .hero-decoration {
     position: absolute;
