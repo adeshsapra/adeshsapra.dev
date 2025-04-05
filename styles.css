@@ -417,14 +417,10 @@ section {
     margin-top: 2rem;
 }
 .profile-shape {
-    width: 250px; /* or use responsive units like 100%, or clamp() */
-    height: 250px;
+    width: 100%;
+    height: 100%;
     border-radius: var(--radius-xl);
-    background: linear-gradient(
-        135deg,
-        rgba(124, 58, 237, 0.1),
-        rgba(236, 72, 153, 0.1)
-    );
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(236, 72, 153, 0.1));
     border: 1px solid rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -435,22 +431,31 @@ section {
     overflow: hidden;
     box-shadow: var(--shadow-xl);
     animation: float 6s ease-in-out infinite;
-    padding: 10px; /* add padding to frame the image */
 }
 
+/* Apply radius to image as well */
 .profile-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 30%;
+    border-radius: var(--radius-xl); /* Match shape */
     transition: var(--transition);
 }
 
-/* Hover effect stays smooth */
+/* Hover zoom effect */
 .profile-shape:hover .profile-photo {
     transform: scale(1.05);
 }
 
+/* 🧠 Hide the shape if image is present */
+.profile-shape.has-image {
+    background: none;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    animation: none;
+}
 
 
 @keyframes float {
