@@ -416,9 +416,8 @@ section {
     gap: 1rem;
     margin-top: 2rem;
 }
-
 .profile-shape {
-    width: 250px; /* set fixed or responsive size */
+    width: 250px; /* or use responsive units like 100%, or clamp() */
     height: 250px;
     border-radius: var(--radius-xl);
     background: linear-gradient(
@@ -436,20 +435,22 @@ section {
     overflow: hidden;
     box-shadow: var(--shadow-xl);
     animation: float 6s ease-in-out infinite;
+    padding: 10px; /* add padding to frame the image */
 }
 
 .profile-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: inherit; /* 🧠 This is key — matches parent */
+    border-radius: inherit;
     transition: var(--transition);
 }
 
-/* Hover effect for the image inside the shape */
+/* Hover effect stays smooth */
 .profile-shape:hover .profile-photo {
     transform: scale(1.05);
 }
+
 
 
 @keyframes float {
