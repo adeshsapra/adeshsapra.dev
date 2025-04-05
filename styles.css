@@ -439,6 +439,7 @@ section {
     height: 100%;
     object-fit: cover;
     transition: var(--transition);
+    text-align: center;
 }
 
 .profile-shape:hover .profile-photo {
