@@ -6,6 +6,10 @@ A personal portfolio website to showcase my projects, skills, and resume.
 
 ---
 
+![Profile Views](https://komarev.com/ghpvc/?username=adeshsapra&color=blue)
+
+---
+
 ## 🚀 Tech Stack
 
 - HTML5  
